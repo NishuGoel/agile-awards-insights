@@ -1,0 +1,31 @@
+<div class = "container">
+  <h4>Look for your document here:</h4>
+
+  <input  class="form-control input-sm" type="text" placeholder="Search with the document title" [(ngModel)]= "docName" (input)= "Search()"><br>
+</div>
+ 
+<br><br>
+
+<div class = "container">
+  <table class = "table table-condensed ">
+      <ol>
+    <tr *ngFor= 'let d of documents'>
+      <!-- <input type = "checkbox" >&#160; -->
+      <!-- <td>{{d.id}}</td> -->
+
+     <li> <td><a [routerLink]='["/display", d._id]'> {{d?.title}}</a></td> </li>
+   <td style= "text-align: right"><img (click) = "deleteDocument(d._id)" width = "20px" height = "20px" src= "https://www.pinclipart.com/picdir/middle/159-1597907_delete-garbage-remove-trash-trash-can-icon-delete.png"> </td>
+     
+      <!-- <td>{{d.text}}</td> -->
+  
+    </tr>
+  </ol>
+  </table>
+  <br><br>
+  <button class="btn btn-danger" routerLink="/home">Add a new story</button> &#160;
+  <button class= "btn btn-danger" routerLink="/home">Go back</button>
+
+</div>
+
+ 
+<router-outlet></router-outlet>

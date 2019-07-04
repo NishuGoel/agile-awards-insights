@@ -1,0 +1,41 @@
+<div id="div1" class="container">
+    <h4>Document Id: {{document?._id}}</h4>
+    <h2>{{document?.title}}</h2><br>
+</div>
+<div id="div2" class="container" >
+    <p>{{document?.body}}</p><br>
+</div>
+
+<!-- 
+[(ngModel)]="updatedText" -->
+<br>
+<!-- <div  class = "container"><button class = "btn btn-success" 
+    (click)= "updateDocument(document.id)">Update</button></div> -->
+
+
+<!-- <div class="container"><button class="btn btn-success" [routerLink]="[ {outlets: {popup: ['edit']}}]">Edit
+        Story</button></div> -->
+
+<div class= "container"><button class = "btn btn-success" (click)= "openUserDialog()">Edit Story</button></div>
+
+<br>
+
+<div class="container">
+    <div class="row">
+        <div>
+            <router-outlet #o="outlet"></router-outlet>
+        </div><br>
+        <div>
+            <router-outlet name="popup"></router-outlet>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- <button class="btn btn-default" (click)=updateDocument(document._id)>Update</button>&#160;  -->
+<button style="color: red" class="btn btn-default" (click)= "deleteDocument(document._id)">Delete Document !!!</button></div>
+
+<br>
+<div class="container"><button class="btn btn-danger" routerLink="/search"> Go back</button>&#160;
+    <button class="btn btn-danger" routerLink="/home"> Add my story</button>
+</div>
